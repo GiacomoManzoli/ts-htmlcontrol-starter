@@ -1,0 +1,48 @@
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9"/><![endif]-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grapheditor</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <script type="text/javascript" src="libs/omnis/omn_date.js"></script>
+        <script type="text/javascript" src="libs/omnis/omn_list_base.js"></script>
+        <script type="text/javascript" src="libs/omnis/omnishtmlcontrol.js"></script>
+        <script type="text/javascript" src="libs/omnis/jOmnisHotSwap.js"></script>
+    </head>
+
+    <body class="geEditor">
+        <script type="text/javascript">
+            var scriptBasePath =
+                document.location.protocol +
+                "//" +
+                document.location.host +
+                document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"))
+
+            console.log(`Script basePath: ${scriptBasePath}`)
+
+            // Carica la variabile d'ambiente
+            document.write(
+                `<script type="text/javascript" src="${scriptBasePath}/ENV.js?_v=${new Date().getTime()}"><\/script>`
+            ) // Carica window.ENV
+        </script>
+
+        <script>
+            // Carica il Bundle
+            if (window.ENV && window.ENV.mode == "DEV") {
+                console.warn("ENVIRONMENT: DEV")
+                document.write(
+                    `<script type="text/javascript" src="${
+                        window.ENV.basePath
+                    }/dist/8draw.bundle.js?_v=${new Date().getTime()}"><\/script>`
+                )
+            } else {
+                console.warn("ENVIRONMENT: PROD")
+                document.write(
+                    `<script type="text/javascript" src="${scriptBasePath}/dist/8draw.bundle.js?_v=${new Date().getTime()}"><\/script>`
+                )
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+{
+    "include": ["./**/*.d.ts", "./**/*.ts", "config.js"],
+    // "exclude": ["./**/*.test.ts"],
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */,
+        "resolveJsonModule": true,
+        "outDir": "./dist" /* Redirect output structure to the directory. */,
+
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        // ROAD TO STRICT
+        // "strictNullChecks": true,
+        // "strictPropertyInitialization": true,
+        // "noImplicitAny": true,
+        // "strict": true /* Enable all strict type-checking options. */,
+
+        "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+        "allowJs": true,
+        "sourceMap": true,
+        "listFiles": true,
+        "lib": ["es2016", "dom"],
+        "rootDir": ".",
+        "baseUrl": ".", // This must be specified if "paths" is.
+        "moduleResolution": "node"
+        // Per farli funzionare devi configurare opportunamente anche WebPack
+        // https://www.basefactor.com/configuring-aliases-in-webpack-vs-code-typescript-jest
+
+        // "paths": {
+        //     "@src/*": ["./src/*"], // Controlla il contenuto
+        //     "@app": ["./src/app/"],
+        //     "@utils": ["./src/utils/"],
+        //     "@settings": ["./src/APP_CONFIG.ts"],
+        //     "@errors": ["./src/errors.ts"]
+        // }
+    }
+}
